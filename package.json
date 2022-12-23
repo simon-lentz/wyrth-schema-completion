@@ -9,16 +9,8 @@
       "vscode": "^1.51.0"
     },
     "categories": ["Other"],
-    "activationEvents": [],
+    "activationEvents": ["onLanguage:Cue"],
     "main": "./out/extension.js",
-    "contributes": {
-      "commands": [
-        {
-          "command": "test-extension.helloWorld",
-          "title": "Hello World"
-        }
-      ]
-    },
     "scripts": {
       "vscode:prepublish": "npm run compile",
       "compile": "tsc -p ./",
