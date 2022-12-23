@@ -1,0 +1,33 @@
+{
+    "name": "test-extension",
+    "displayName": "test-extension",
+    "description": "Simon's test extension for VS Code",
+    "version": "0.0.1",
+    "publisher": "simon-lentz",
+    "repository": "https://github.com/simon-lentz/test-extension",
+    "engines": {
+      "vscode": "^1.51.0"
+    },
+    "categories": ["Other"],
+    "activationEvents": [],
+    "main": "./out/extension.js",
+    "contributes": {
+      "commands": [
+        {
+          "command": "test-extension.helloWorld",
+          "title": "Hello World"
+        }
+      ]
+    },
+    "scripts": {
+      "vscode:prepublish": "npm run compile",
+      "compile": "tsc -p ./",
+      "watch": "tsc -watch -p ./"
+    },
+    "devDependencies": {
+      "@types/node": "^8.10.25",
+      "@types/vscode": "^1.51.0",
+      "tslint": "^5.16.0",
+      "typescript": "^3.4.5"
+    }
+  }
