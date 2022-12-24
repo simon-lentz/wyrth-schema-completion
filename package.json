@@ -1,13 +1,13 @@
 {
-	"name": "completions-sample",
-	"displayName": "Completion Item Provider Sample",
-	"version": "0.0.2",
-	"publisher": "vscode-samples",
+	"name": "test-extension",
+	"displayName": "Schema Auto-Completion Item Sample",
+	"version": "0.0.1",
+	"publisher": "The Wyrth Company",
 	"private": true,
 	"license": "MIT",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/Microsoft/vscode-extension-samples"
+		"url": "https://github.com/simon-lentz/test-extension"
 	},
 	"engines": {
 		"vscode": "^1.32.0"
@@ -16,7 +16,9 @@
 		"Other"
 	],
 	"activationEvents": [
-		"*"
+		"onLanguage:cue",
+    "onLanguage:json",
+    "onLanguage:yaml"
 	],
 	"main": "./out/extension.js",
 	"scripts": {
