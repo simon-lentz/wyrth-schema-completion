@@ -2,13 +2,12 @@ import * as vscode from 'vscode';
 
 export function activate(context: vscode.ExtensionContext) {
 
-	const electricDomain = vscode.languages.registerCompletionItemProvider('plaintext',
+	const electricDomain = vscode.languages.registerCompletionItemProvider('yaml',
 	{
 		provideCompletionItems(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken, context: vscode.CompletionContext) 
 		{
 			const electricDomainCompletion = new vscode.CompletionItem(
-`
-Electric Domain Manual Entry:	
+`Electric Domain Manual Entry:	
   Entity: 
     knownAs: ""
     ownership
@@ -105,7 +104,7 @@ Electric Domain Manual Entry:
 		}
 	});
 
-	const provider = vscode.languages.registerCompletionItemProvider('plaintext', {
+	const provider = vscode.languages.registerCompletionItemProvider('yaml', {
 
 			provideCompletionItems(document: vscode.TextDocument, position: vscode.Position) {
 
