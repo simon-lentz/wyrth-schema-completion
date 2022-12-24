@@ -2,10 +2,10 @@ import * as vscode from 'vscode';
 
 export function activate(context: vscode.ExtensionContext) {
 
-	const electricDomain = vscode.languages.registerCompletionItemProvider('plaintext', {
-
-		provideCompletionItems(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken, context: vscode.CompletionContext) {
-
+	const electricDomain = vscode.languages.registerCompletionItemProvider('plaintext',
+	{
+		provideCompletionItems(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken, context: vscode.CompletionContext) 
+		{
 			const electricDomainCompletion = new vscode.CompletionItem(
 `Electric Domain Manual Entry:	
 	Entity: 
@@ -17,8 +17,8 @@ export function activate(context: vscode.ExtensionContext) {
 		governmental: ""
 		domain: "electric power"
 		name: ""
-		endUser: true
-		serviceProvider: true
+		endUser: false
+		serviceProvider: false
 	Service:
 		powerDeliveryMW: 0.0
 		solarPowerCapacityMWhYear: 0.0
@@ -28,8 +28,8 @@ export function activate(context: vscode.ExtensionContext) {
 		gridStabilization: ""
 		powerGenerationMW: 0.0
 		geoThermalPowerCapacityMW: 0.0
-		sustainabiltyFocused: true
-		electricUtilityService: true
+		sustainabiltyFocused: false
+		electricUtilityService: false
 		solarCaptureTechnology: ""
 		geoThermalCaptureType: ""
 		domain: "electric power"
@@ -38,7 +38,7 @@ export function activate(context: vscode.ExtensionContext) {
 		windCaptureTechnology: ""
 		economicModel: ""
 		geographicalScale: ""
-		electricTransmissionService: true
+		electricTransmissionService: false
 		comment: ""
 		description: ""
 		nuclearPowerTechnology: ""
@@ -51,7 +51,7 @@ export function activate(context: vscode.ExtensionContext) {
 		biomassCaptureType: ""
 		targetUsers: ""
 		hydroPowerCapacityMW: 0.0
-		electricWholesalingService: true
+		electricWholesalingService: false
 	Project:
 		operationalDate: ""
 		usesNaturalResource: ""
@@ -66,7 +66,7 @@ export function activate(context: vscode.ExtensionContext) {
 		domain: "electric power"
 		knownAs: ""
 		purpose: ""
-		decarbonizationPlan: true
+		decarbonizationPlan: false
 		mandatedDecarbonizationTargets: "percent, date"
 		voluntaryDecarbonizationTargets: "percent, date"
 		description: ""
@@ -90,59 +90,59 @@ export function activate(context: vscode.ExtensionContext) {
 		country: ""
 		county: ""
 	GovernmentAuthority:
-		regulatoryAgency: true
+		regulatoryAgency: false
 		description: ""
 		comment: ""
 		knownAs: ""
 		level: ""
 		domain: "electric power"`);
-			// a completion item that inserts its text as snippet,
-			// the `insertText`-property is a `SnippetString` which will be
-			// honored by the editor.
-			const snippetCompletion = new vscode.CompletionItem('ownership');
-			snippetCompletion.insertText = new vscode.SnippetString('ownership: ${1|"public investors","private investors","members"|}');
-			const docs: any = new vscode.MarkdownString("Inserts a snippet that describes Entity.ownership options, [link](x.ts).");
-			snippetCompletion.documentation = docs;
-			docs.baseUri = vscode.Uri.parse('http://example.com/a/b/c/');
 
-			// a completion item that can be accepted by a commit character,
-			// the `commitCharacters`-property is set which means that the completion will
-			// be inserted and then the character will be typed.
-			const commitCharacterCompletion = new vscode.CompletionItem('console');
-			commitCharacterCompletion.commitCharacters = ['.'];
-			commitCharacterCompletion.documentation = new vscode.MarkdownString('Press `.` to get `console.`');
+			// Entity node auto-completion items for default values
+			const ownershipSnippet = new vscode.CompletionItem('ownership: ""');
+			ownershipSnippet.insertText = new vscode.SnippetString('ownership: ${1|"public investors","private investors","members",""|}');
 
-			// a completion item that retriggers IntelliSense when being accepted,
-			// the `command`-property is set which the editor will execute after 
-			// completion has been inserted. Also, the `insertText` is set so that 
-			// a space is inserted after `new`
-			const commandCompletion = new vscode.CompletionItem('new');
-			commandCompletion.kind = vscode.CompletionItemKind.Keyword;
-			commandCompletion.insertText = 'new ';
-			commandCompletion.command = { command: 'editor.action.triggerSuggest', title: 'Re-trigger completions...' };
+			const organizationalFormSnippet = new vscode.CompletionItem('organizationalForm: ""');
+			organizationalFormSnippet.insertText = new vscode.SnippetString('organizationalForm: ${1|"individual","company","consortium",""|}');
 
-			// return all completion items as array
+			const governmentalSnippet = new vscode.CompletionItem('governmental: ""');
+			governmentalSnippet.insertText = new vscode.SnippetString('governmental: ${1|"federal","regional","state","local",""|}');
+
+			const endUserSnippet = new vscode.CompletionItem('endUser: false');
+			endUserSnippet.insertText = new vscode.SnippetString('endUser: ${1|true,false|}');
+
+			const serviceProviderSnippet = new vscode.CompletionItem('serviceProvider: false');
+			serviceProviderSnippet.insertText = new vscode.SnippetString('serviceProvider: ${1|true,false|}');
+
+			// Service node auto-completion items for default values
+
+			// Project node auto-completion items for default values
+
+			// Initiative node auto-completion items for default values
+
+			// Regulation node auto-completion items for default values
+
+
+			// Return all completion items as array
 			return [
 				electricDomainCompletion,
-				snippetCompletion,
-				commitCharacterCompletion,
-				commandCompletion
+				ownershipSnippet,
+				organizationalFormSnippet,
+				governmentalSnippet,
+				endUserSnippet,
+				serviceProviderSnippet
 			];
 		}
 	});
 
-	const provider = vscode.languages.registerCompletionItemProvider(
-		'plaintext',
-		{
+	const provider = vscode.languages.registerCompletionItemProvider('plaintext', {
+
 			provideCompletionItems(document: vscode.TextDocument, position: vscode.Position) {
 
-				// get all text until the `position` and check if it reads `console.`
-				// and if so then complete if `log`, `warn`, and `error`
 				const linePrefix = document.lineAt(position).text.substring(0, position.character);
+				
 				if (!linePrefix.endsWith('console.')) {
-					return undefined;
+					return undefined; 
 				}
-
 				return [
 					new vscode.CompletionItem('log', vscode.CompletionItemKind.Method),
 					new vscode.CompletionItem('warn', vscode.CompletionItemKind.Method),
@@ -152,41 +152,5 @@ export function activate(context: vscode.ExtensionContext) {
 		},
 		'.' // triggered whenever a '.' is being typed
 	);
-
 	context.subscriptions.push(electricDomain, provider);
 }
-
-/* TODO change to a hover to show options API: https://code.visualstudio.com/api/references/vscode-api
-Hover
-A hover represents additional information for a symbol or word. Hovers are rendered in a tooltip-like widget.
-
-CONSTRUCTORS
-new Hover(contents: MarkdownString | MarkedString | MarkdownString | MarkedString[], range?: Range): Hover
-
-PROPERTIES
-contents: MarkdownString | MarkedString[]
-
-range?: Range
-
-HoverProvider
-The hover provider interface defines the contract between extensions and the hover-feature.
-
-METHODS
-provideHover(document: TextDocument, position: Position, token: CancellationToken): ProviderResult<Hover>
-
-Provide a hover for the given position and document. Multiple hovers at the same position will be merged by the editor. A hover can have a range which defaults to the word range at the position when omitted.
-
-Parameter	Description
-document: TextDocument	
-The document in which the command was invoked.
-
-position: Position	
-The position at which the command was invoked.
-
-token: CancellationToken	
-A cancellation token.
-
-Returns	Description
-ProviderResult<Hover>	
-A hover or a thenable that resolves to such. The lack of a result can be signaled by returning undefined or null.
-*/
