@@ -21,80 +21,80 @@ export function activate(context: vscode.ExtensionContext) {
 		serviceProvider: true
 	Service:
 		powerDeliveryMW: 0.0
-		solarPowerCapacityMWhYear: 0.0,
-		biomassCarbonImpact: "",
-		hydroCaptureType: "",
-		powerStorageType: "",
-		gridStabilization: "",
-		powerGenerationMW: 0.0,
-		geoThermalPowerCapacityMW: 0.0,
-		sustainabiltyFocused: true,
-		electricUtilityService: true,
-		solarCaptureTechnology: "",
-		geoThermalCaptureType: "",
-		domain: "electric power",
-		solarPlantType: "",
-		windPowerCapacityMWhYear: 0.0,
-		windCaptureTechnology: "",
-		economicModel: "",
-		geographicalScale: "",
-		electricTransmissionService: true,
-		comment: "",
-		description: "",
-		nuclearPowerTechnology: "",
-		powerStorageMW: 0.0,
-		windPowerCapacityMW: 0.0,
-		nuclearPowerCapacityMW: 0.0,
-		solarPowerCapacityMW: 0.0,
-		windPlantType: "",
-		biomassPowerMWhYear: 0.0,
-		biomassCaptureType: "",
-		targetUsers: "",
-		hydroPowerCapacityMW: 0.0,
+		solarPowerCapacityMWhYear: 0.0
+		biomassCarbonImpact: ""
+		hydroCaptureType: ""
+		powerStorageType: ""
+		gridStabilization: ""
+		powerGenerationMW: 0.0
+		geoThermalPowerCapacityMW: 0.0
+		sustainabiltyFocused: true
+		electricUtilityService: true
+		solarCaptureTechnology: ""
+		geoThermalCaptureType: ""
+		domain: "electric power"
+		solarPlantType: ""
+		windPowerCapacityMWhYear: 0.0
+		windCaptureTechnology: ""
+		economicModel: ""
+		geographicalScale: ""
+		electricTransmissionService: true
+		comment: ""
+		description: ""
+		nuclearPowerTechnology: ""
+		powerStorageMW: 0.0
+		windPowerCapacityMW: 0.0
+		nuclearPowerCapacityMW: 0.0
+		solarPowerCapacityMW: 0.0
+		windPlantType: ""
+		biomassPowerMWhYear: 0.0
+		biomassCaptureType: ""
+		targetUsers: ""
+		hydroPowerCapacityMW: 0.0
 		electricWholesalingService: true
 	Project:
-		operationalDate: "",
-		usesNaturalResource: "",
-		usesBuiltResource: "",
-		description: "",
-		comment: "",
-		domain: "electric power",
-		knownAs: "",
+		operationalDate: ""
+		usesNaturalResource: ""
+		usesBuiltResource: ""
+		description: ""
+		comment: ""
+		domain: "electric power"
+		knownAs: ""
 		projectState: ""
 	Initiative:
-		comment: "",
-		domain: "electric power",
-		knownAs: "",
-		purpose: "",
-		decarbonizationPlan: true,
-		mandatedDecarbonizationTargets: "percent, date",
-		voluntaryDecarbonizationTargets: "percent, date",
+		comment: ""
+		domain: "electric power"
+		knownAs: ""
+		purpose: ""
+		decarbonizationPlan: true
+		mandatedDecarbonizationTargets: "percent, date"
+		voluntaryDecarbonizationTargets: "percent, date"
 		description: ""
 	Regulation:
-		relatedRegulation: "",
-		description: "",
-		comment: "",
-		domain: "electric power",
-		knownAs: "",
-		statutoryTextLink: "",
+		relatedRegulation: ""
+		description: ""
+		comment: ""
+		domain: "electric power"
+		knownAs: ""
+		statutoryTextLink: ""
 		purpose: ""
 	Place:
-		knownAs: "",
-		description: "",
-		state: "",
-		city: "",
-		internationalRegion: "",
-		multistateRegion: "",
-		gridCoordinates: (0.0, 0.0),
-		comment: "",
-		country: "",
+		knownAs: ""
+		description: ""
+		state: ""
+		city: ""
+		internationalRegion: ""
+		multistateRegion: ""
+		gridCoordinates: (0.0, 0.0)
+		comment: ""
+		country: ""
 		county: ""
 	GovernmentAuthority:
-		regulatoryAgency: true,
-		description: "",
-		comment: "",
-		knownAs: "",
-		level: "",
+		regulatoryAgency: true
+		description: ""
+		comment: ""
+		knownAs: ""
+		level: ""
 		domain: "electric power"`);
 			// a completion item that inserts its text as snippet,
 			// the `insertText`-property is a `SnippetString` which will be

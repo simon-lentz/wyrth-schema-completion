@@ -1,13 +1,13 @@
 {
-	"name": "test-extension",
-	"displayName": "Schema Auto-Completion Item Sample",
+	"name": "wyrth-schema-completion",
+	"displayName": "wyrth-schema-completion",
 	"version": "0.0.1",
-	"publisher": "The Wyrth Company",
+	"publisher": "Simon",
 	"private": true,
 	"license": "MIT",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/simon-lentz/test-extension"
+		"url": "https://github.com/simon-lentz/wyrth-schema-completion"
 	},
 	"engines": {
 		"vscode": "^1.32.0"
