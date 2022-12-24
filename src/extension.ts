@@ -6,121 +6,102 @@ export function activate(context: vscode.ExtensionContext) {
 
 		provideCompletionItems(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken, context: vscode.CompletionContext) {
 
-			const entityCompletion = new vscode.CompletionItem(`
-			"Entity": {
-				"knownAs": "",
-				"ownership": "",
-				"organizationalForm": "",
-				"description": "",
-				"comment": "",
-				"governmental": "",
-				"domain": "electric power",
-				"name": "",
-				"endUser": true,
-				"serviceProvider": true
-			}`);
-			
-			const serviceCompletion = new vscode.CompletionItem(`
-			"Service": {
-				"powerDeliveryMW": 0.0,
-				"solarPowerCapacityMWhYear": 0.0,
-				"biomassCarbonImpact": "",
-				"hydroCaptureType": "",
-				"powerStorageType": "",
-				"gridStabilization": "",
-				"powerGenerationMW": 0.0,
-				"geoThermalPowerCapacityMW": 0.0,
-				"sustainabiltyFocused": true,
-				"electricUtilityService": true,
-				"solarCaptureTechnology": "",
-				"geoThermalCaptureType": "",
-				"domain": "electric power",
-				"solarPlantType": "",
-				"windPowerCapacityMWhYear": 0.0,
-				"windCaptureTechnology": "",
-				"economicModel": "",
-				"geographicalScale": "",
-				"electricTransmissionService": true,
-				"comment": "",
-				"description": "",
-				"nuclearPowerTechnology": "",
-				"powerStorageMW": 0.0,
-				"windPowerCapacityMW": 0.0,
-				"nuclearPowerCapacityMW": 0.0,
-				"solarPowerCapacityMW": 0.0,
-				"windPlantType": "",
-				"biomassPowerMWhYear": 0.0,
-				"biomassCaptureType": "",
-				"targetUsers": "",
-				"hydroPowerCapacityMW": 0.0,
-				"electricWholesalingService": true
-			}`);
-
-			const projectCompletion = new vscode.CompletionItem(`
-			"Project": {
-				"operationalDate": "",
-				"usesNaturalResource": "",
-				"usesBuiltResource": "",
-				"description": "",
-				"comment": "",
-				"domain": "electric power",
-				"knownAs": "",
-				"projectState": ""
-			}`);
-
-			const initiativeCompletion = new vscode.CompletionItem(`
-			"Initiative": {
-				"comment": "",
-				"domain": "electric power",
-				"knownAs": "",
-				"purpose": "",
-				"decarbonizationPlan": true,
-				"mandatedDecarbonizationTargets": "percent, date",
-				"voluntaryDecarbonizationTargets": "percent, date",
-				"description": ""
-			}`);
-
-			const regulationCompletion = new vscode.CompletionItem(`
-			"Regulation": {
-				"relatedRegulation": "",
-				"description": "",
-				"comment": "",
-				"domain": "electric power",
-				"knownAs": "",
-				"statutoryTextLink": "",
-				"purpose": ""
-			}`);
-
-			const placeCompletion = new vscode.CompletionItem(`
-			"Place": {
-				"knownAs": "",
-				"description": "",
-				"state": "",
-				"city": "",
-				"internationalRegion": "",
-				"multistateRegion": "",
-				"gridCoordinates": 0.0,
-				"comment": "",
-				"country": "",
-				"county": ""
-			}`);
-
-			const governmentAuthorityCompletion = new vscode.CompletionItem(`
-			"GovernmentAuthority": {
-				"regulatoryAgency": true,
-				"description": "",
-				"comment": "",
-				"knownAs": "",
-				"level": "",
-				"domain": "electric power"
-			}`);
-
+			const electricDomainCompletion = new vscode.CompletionItem(
+`Electric Domain:	
+	Entity: 
+		knownAs: "",
+		ownership: "",
+		organizationalForm: "",
+		description: "",
+		comment: "",
+		governmental: "",
+		domain: "electric power",
+		name: "",
+		endUser: true,
+		serviceProvider: true
+	Service:
+		powerDeliveryMW: 0.0,
+		solarPowerCapacityMWhYear: 0.0,
+		biomassCarbonImpact: "",
+		hydroCaptureType: "",
+		powerStorageType: "",
+		gridStabilization: "",
+		powerGenerationMW: 0.0,
+		geoThermalPowerCapacityMW: 0.0,
+		sustainabiltyFocused: true,
+		electricUtilityService: true,
+		solarCaptureTechnology: "",
+		geoThermalCaptureType: "",
+		domain: "electric power",
+		solarPlantType: "",
+		windPowerCapacityMWhYear: 0.0,
+		windCaptureTechnology: "",
+		economicModel: "",
+		geographicalScale: "",
+		electricTransmissionService: true,
+		comment: "",
+		description: "",
+		nuclearPowerTechnology: "",
+		powerStorageMW: 0.0,
+		windPowerCapacityMW: 0.0,
+		nuclearPowerCapacityMW: 0.0,
+		solarPowerCapacityMW: 0.0,
+		windPlantType: "",
+		biomassPowerMWhYear: 0.0,
+		biomassCaptureType: "",
+		targetUsers: "",
+		hydroPowerCapacityMW: 0.0,
+		electricWholesalingService: true
+	Project:
+		operationalDate: "",
+		usesNaturalResource: "",
+		usesBuiltResource: "",
+		description: "",
+		comment: "",
+		domain: "electric power",
+		knownAs: "",
+		projectState: ""
+	Initiative:
+		comment: "",
+		domain: "electric power",
+		knownAs: "",
+		purpose: "",
+		decarbonizationPlan: true,
+		mandatedDecarbonizationTargets: "percent, date",
+		voluntaryDecarbonizationTargets: "percent, date",
+		description: ""
+	Regulation:
+		relatedRegulation: "",
+		description: "",
+		comment: "",
+		domain: "electric power",
+		knownAs: "",
+		statutoryTextLink: "",
+		purpose: ""
+	Place:
+		knownAs: "",
+		description: "",
+		state: "",
+		city: "",
+		internationalRegion: "",
+		multistateRegion: "",
+		gridCoordinates: (0.0, 0.0),
+		comment: "",
+		country: "",
+		county: ""
+	GovernmentAuthority:
+		regulatoryAgency: true,
+		description: "",
+		comment: "",
+		knownAs: "",
+		level: "",
+		domain: "electric power"`);
 			// a completion item that inserts its text as snippet,
 			// the `insertText`-property is a `SnippetString` which will be
 			// honored by the editor.
-			const snippetCompletion = new vscode.CompletionItem('Good part of the day');
-			snippetCompletion.insertText = new vscode.SnippetString('Good ${1|morning,afternoon,evening|}. It is ${1}, right?');
-			const docs: any = new vscode.MarkdownString("Inserts a snippet that lets you select [link](x.ts).");
+			const snippetCompletion = new vscode.CompletionItem('ownership');
+			snippetCompletion.insertText = new vscode.SnippetString('Select from: ${1|public investors,private investors,members|}');
+			const docs: any = new vscode.MarkdownString("Inserts a snippet that describes Entity.ownership options, [link](x.ts).");
 			snippetCompletion.documentation = docs;
 			docs.baseUri = vscode.Uri.parse('http://example.com/a/b/c/');
 
@@ -142,13 +123,7 @@ export function activate(context: vscode.ExtensionContext) {
 
 			// return all completion items as array
 			return [
-				entityCompletion,
-				serviceCompletion,
-				projectCompletion,
-				initiativeCompletion,
-				regulationCompletion,
-				placeCompletion,
-				governmentAuthorityCompletion,
+				electricDomainCompletion,
 				snippetCompletion,
 				commitCharacterCompletion,
 				commandCompletion
@@ -163,7 +138,7 @@ export function activate(context: vscode.ExtensionContext) {
 
 				// get all text until the `position` and check if it reads `console.`
 				// and if so then complete if `log`, `warn`, and `error`
-				const linePrefix = document.lineAt(position).text.substr(0, position.character);
+				const linePrefix = document.lineAt(position).text.substring(0, position.character);
 				if (!linePrefix.endsWith('console.')) {
 					return undefined;
 				}
