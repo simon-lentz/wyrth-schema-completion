@@ -7,7 +7,7 @@ export function activate(context: vscode.ExtensionContext) {
 		provideCompletionItems(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken, context: vscode.CompletionContext) {
 
 			const electricDomainCompletion = new vscode.CompletionItem(
-`Electric Domain:	
+`Electric Domain Manual Entry:	
 	Entity: 
 		knownAs: ""
 		ownership: ""
