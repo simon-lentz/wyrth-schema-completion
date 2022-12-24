@@ -16,9 +16,10 @@
 		"Other"
 	],
 	"activationEvents": [
+		"*",
 		"onLanguage:cue",
-    "onLanguage:json",
-    "onLanguage:yaml"
+    	"onLanguage:json",
+    	"onLanguage:yaml"
 	],
 	"main": "./out/extension.js",
 	"scripts": {
