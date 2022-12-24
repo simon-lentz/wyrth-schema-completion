@@ -100,7 +100,7 @@ export function activate(context: vscode.ExtensionContext) {
 			// the `insertText`-property is a `SnippetString` which will be
 			// honored by the editor.
 			const snippetCompletion = new vscode.CompletionItem('ownership');
-			snippetCompletion.insertText = new vscode.SnippetString('Select from: ${1|public investors,private investors,members|}');
+			snippetCompletion.insertText = new vscode.SnippetString('ownership: ${1|"public investors","private investors","members"|}');
 			const docs: any = new vscode.MarkdownString("Inserts a snippet that describes Entity.ownership options, [link](x.ts).");
 			snippetCompletion.documentation = docs;
 			docs.baseUri = vscode.Uri.parse('http://example.com/a/b/c/');
