@@ -1,0 +1,103 @@
+{
+	"ownership": {
+	  "scope": "yaml",
+	  "prefix": "ownership:",
+	  "body": "ownership: ${1|\"public investors\",\"private investors\",\"members\",\"\"|}"
+	},
+	"organizationalForm": {
+		"scope": "yaml",
+		"prefix": "organizationalForm:",
+		"body": "organizationalForm: ${1|\"individual\",\"company\",\"consortium\",\"\"|}"
+	  },
+	"governmental": {
+		"scope": "yaml",
+		"prefix": "governmental:",
+		"body": "governmental: ${1|\"federal\",\"regional\",\"state\",\"local\",\"\"|}"
+	  },
+	"biomassCarbonImpact": {
+		"scope": "yaml",
+		"prefix": "biomassCarbonImpact:",
+		"body": "biomassCarbonImpact: ${1|\"emissions neutral\",\"reduces existing emissions\",\"non-positive impact\",\"\"|}"
+	  },
+	"hydroCaptureType": {
+		"scope": "yaml",
+		"prefix": "hydroCaptureType:",
+		"body": "hydroCaptureType: ${1|\"run of river\",\"dam\",\"\"|}"
+	  },	
+	"powerStorageType": {
+		"scope": "yaml",
+		"prefix": "powerStorageType:",
+		"body": "powerStorageType: ${1|\"battery (electrochemical)\",\"heat or inertia\",\"pumped storage\",\"reservoir\",\"\"|}"
+	  },
+	"gridStabilization": {
+		"scope": "yaml",
+		"prefix": "gridStabilization:",
+		"body": "gridStabilization: ${1|\"increases\",\"neutral\",\"decreases\",\"\"|}"
+	  },
+	"solarPlantType": {
+		"scope": "yaml",
+		"prefix": "solarPlantType:",
+		"body": "solarPlantType: ${1|\"farm\",\"virtual farm\",\"non-farm\",\"\"|}"
+	  },
+	"windCaptureTechnology": {
+		"scope": "yaml",
+		"prefix": "windCaptureTechnology:",
+		"body": "windCaptureTechnology: ${1|\"horizontal\",\"vertical\",\"bladeless\",\"\"|}"
+	  },
+	"economicModel": {
+		"scope": "yaml",
+		"prefix": "economicModel:",
+		"body": "economicModel: ${1|\"community benefits\",\"public benefits\",\"financial returns\",\"\"|}"
+	  },
+	"geographicalScale": {
+		"scope": "yaml",
+		"prefix": "geographicalScale:",
+		"body": "geographicalScale: ${1|\"local\",\"regional\",\"national\",\"\"|}"
+	  },
+	"windPlantType": {
+		"scope": "yaml",
+		"prefix": "windPlantType:",
+		"body": "windPlantType: ${1|\"onshore\",\"offshore fixed\",\"offshore floating\",\"\"|}"
+	  },
+	"biomassCaptureType": {
+		"scope": "yaml",
+		"prefix": "biomassCaptureType:",
+		"body": "biomassCaptureType: ${1|\"waste-to-energy\",\"methane capture\",\"\"|}"
+	  },
+	"targetUsers": {
+		"scope": "yaml",
+		"prefix": "targetUsers:",
+		"body": "targetUsers: ${1|\"commercial\",\"residential\",\"\"|}"
+	  },
+	"usesNaturalResource": {
+		"scope": "yaml",
+		"prefix": "usesNaturalResource:",
+		"body": "usesNaturalResource: ${1|\"river\",\"enclosed water body\",\"ocean\",\"wetland\",\"unused land\",\"\"|}"
+	  },
+	"usesBuiltResource": {
+		"scope": "yaml",
+		"prefix": "usesBuiltResource:",
+		"body": "usesBuiltResource: ${1|\"canal\",\"reservoir\",\"existing structure\",\"new structure\",\"industrial, transit or commercial facility\",\"farmland\",\"developed land\",\"brownfield\",\"\"|}"
+	  },
+	"projectState": {
+		"scope": "yaml",
+		"prefix": "projectState:",
+		"body": "projectState: ${1|\"potential\",\"proposed\",\"in process\",\"operational\",\"upgrade\",\"decomissioning\",\"\"|}"
+	  },
+	"mandatedDecarbonizationTargets": {
+		"scope": "yaml",
+		"prefix": "mandatedDecarbonizationTargets:",
+		"body": "mandatedDecarbonizationTargets: ${1|\"percent and date\",\"\"|}"
+	  },
+	"voluntaryDecarbonizationTargets": {
+		"scope": "yaml",
+		"prefix": "voluntaryDecarbonizationTargets:",
+		"body": "voluntaryDecarbonizationTargets: ${1|\"percent and date\",\"\"|}"
+	  },
+	  "level": {
+		"scope": "yaml",
+		"prefix": "level:",
+		"body": "level: ${1|\"federal\",\"regional\",\"state\",\"local\",\"\"|}"
+	  }
+  }
+  

@@ -10,11 +10,11 @@ export function activate(context: vscode.ExtensionContext) {
 `Electric Domain Manual Entry:	
 	Entity: 
 		knownAs: ""
-		ownership: ""
-		organizationalForm: ""
+		ownership
+		organizationalForm
 		description: ""
 		comment: ""
-		governmental: ""
+		governmental
 		domain: "electric power"
 		name: ""
 		endUser: false
@@ -22,10 +22,10 @@ export function activate(context: vscode.ExtensionContext) {
 	Service:
 		powerDeliveryMW: 0.0
 		solarPowerCapacityMWhYear: 0.0
-		biomassCarbonImpact: ""
-		hydroCaptureType: ""
-		powerStorageType: ""
-		gridStabilization: ""
+		biomassCarbonImpact
+		hydroCaptureType
+		powerStorageType
+		gridStabilization
 		powerGenerationMW: 0.0
 		geoThermalPowerCapacityMW: 0.0
 		sustainabiltyFocused: false
@@ -33,11 +33,11 @@ export function activate(context: vscode.ExtensionContext) {
 		solarCaptureTechnology: ""
 		geoThermalCaptureType: ""
 		domain: "electric power"
-		solarPlantType: ""
+		solarPlantType
 		windPowerCapacityMWhYear: 0.0
-		windCaptureTechnology: ""
-		economicModel: ""
-		geographicalScale: ""
+		windCaptureTechnology
+		economicModel
+		geographicalScale
 		electricTransmissionService: false
 		comment: ""
 		description: ""
@@ -46,29 +46,29 @@ export function activate(context: vscode.ExtensionContext) {
 		windPowerCapacityMW: 0.0
 		nuclearPowerCapacityMW: 0.0
 		solarPowerCapacityMW: 0.0
-		windPlantType: ""
+		windPlantType
 		biomassPowerMWhYear: 0.0
-		biomassCaptureType: ""
-		targetUsers: ""
+		biomassCaptureType
+		targetUsers
 		hydroPowerCapacityMW: 0.0
 		electricWholesalingService: false
 	Project:
 		operationalDate: ""
-		usesNaturalResource: ""
-		usesBuiltResource: ""
+		usesNaturalResource
+		usesBuiltResource
 		description: ""
 		comment: ""
 		domain: "electric power"
 		knownAs: ""
-		projectState: ""
+		projectState
 	Initiative:
 		comment: ""
 		domain: "electric power"
 		knownAs: ""
 		purpose: ""
 		decarbonizationPlan: false
-		mandatedDecarbonizationTargets: "percent, date"
-		voluntaryDecarbonizationTargets: "percent, date"
+		mandatedDecarbonizationTargets
+		voluntaryDecarbonizationTargets
 		description: ""
 	Regulation:
 		relatedRegulation: ""
@@ -94,42 +94,11 @@ export function activate(context: vscode.ExtensionContext) {
 		description: ""
 		comment: ""
 		knownAs: ""
-		level: ""
+		level
 		domain: "electric power"`);
-
-			// Entity node auto-completion items for default values
-			const ownershipSnippet = new vscode.CompletionItem('ownership: ""');
-			ownershipSnippet.insertText = new vscode.SnippetString('ownership: ${1|"public investors","private investors","members",""|}');
-
-			const organizationalFormSnippet = new vscode.CompletionItem('organizationalForm: ""');
-			organizationalFormSnippet.insertText = new vscode.SnippetString('organizationalForm: ${1|"individual","company","consortium",""|}');
-
-			const governmentalSnippet = new vscode.CompletionItem('governmental: ""');
-			governmentalSnippet.insertText = new vscode.SnippetString('governmental: ${1|"federal","regional","state","local",""|}');
-
-			const endUserSnippet = new vscode.CompletionItem('endUser: false');
-			endUserSnippet.insertText = new vscode.SnippetString('endUser: ${1|true,false|}');
-
-			const serviceProviderSnippet = new vscode.CompletionItem('serviceProvider: false');
-			serviceProviderSnippet.insertText = new vscode.SnippetString('serviceProvider: ${1|true,false|}');
-
-			// Service node auto-completion items for default values
-
-			// Project node auto-completion items for default values
-
-			// Initiative node auto-completion items for default values
-
-			// Regulation node auto-completion items for default values
-
-
-			// Return all completion items as array
+		
 			return [
 				electricDomainCompletion,
-				ownershipSnippet,
-				organizationalFormSnippet,
-				governmentalSnippet,
-				endUserSnippet,
-				serviceProviderSnippet
 			];
 		}
 	});
