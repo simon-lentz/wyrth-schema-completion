@@ -2,25 +2,25 @@ import * as vscode from 'vscode';
 
 export function activate(context: vscode.ExtensionContext) {
 
-	const provider1 = vscode.languages.registerCompletionItemProvider('plaintext', {
+	const electricDomain = vscode.languages.registerCompletionItemProvider('plaintext', {
 
 		provideCompletionItems(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken, context: vscode.CompletionContext) {
 
 			const electricDomainCompletion = new vscode.CompletionItem(
 `Electric Domain:	
 	Entity: 
-		knownAs: "",
-		ownership: "",
-		organizationalForm: "",
-		description: "",
-		comment: "",
-		governmental: "",
-		domain: "electric power",
-		name: "",
-		endUser: true,
+		knownAs: ""
+		ownership: ""
+		organizationalForm: ""
+		description: ""
+		comment: ""
+		governmental: ""
+		domain: "electric power"
+		name: ""
+		endUser: true
 		serviceProvider: true
 	Service:
-		powerDeliveryMW: 0.0,
+		powerDeliveryMW: 0.0
 		solarPowerCapacityMWhYear: 0.0,
 		biomassCarbonImpact: "",
 		hydroCaptureType: "",
@@ -131,7 +131,7 @@ export function activate(context: vscode.ExtensionContext) {
 		}
 	});
 
-	const provider2 = vscode.languages.registerCompletionItemProvider(
+	const provider = vscode.languages.registerCompletionItemProvider(
 		'plaintext',
 		{
 			provideCompletionItems(document: vscode.TextDocument, position: vscode.Position) {
@@ -153,5 +153,40 @@ export function activate(context: vscode.ExtensionContext) {
 		'.' // triggered whenever a '.' is being typed
 	);
 
-	context.subscriptions.push(provider1, provider2);
+	context.subscriptions.push(electricDomain, provider);
 }
+
+/* TODO change to a hover to show options API: https://code.visualstudio.com/api/references/vscode-api
+Hover
+A hover represents additional information for a symbol or word. Hovers are rendered in a tooltip-like widget.
+
+CONSTRUCTORS
+new Hover(contents: MarkdownString | MarkedString | MarkdownString | MarkedString[], range?: Range): Hover
+
+PROPERTIES
+contents: MarkdownString | MarkedString[]
+
+range?: Range
+
+HoverProvider
+The hover provider interface defines the contract between extensions and the hover-feature.
+
+METHODS
+provideHover(document: TextDocument, position: Position, token: CancellationToken): ProviderResult<Hover>
+
+Provide a hover for the given position and document. Multiple hovers at the same position will be merged by the editor. A hover can have a range which defaults to the word range at the position when omitted.
+
+Parameter	Description
+document: TextDocument	
+The document in which the command was invoked.
+
+position: Position	
+The position at which the command was invoked.
+
+token: CancellationToken	
+A cancellation token.
+
+Returns	Description
+ProviderResult<Hover>	
+A hover or a thenable that resolves to such. The lack of a result can be signaled by returning undefined or null.
+*/
