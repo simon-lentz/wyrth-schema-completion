@@ -2,7 +2,7 @@
 	"name": "wyrth-schema-completion",
 	"displayName": "wyrth-schema-completion",
 	"version": "0.0.1",
-	"publisher": "Simon",
+	"publisher": "simon-lentz",
 	"private": true,
 	"license": "MIT",
 	"repository": {
@@ -25,7 +25,7 @@
 		]
 	},
 	"activationEvents": [
-		"*"
+		"onStartupFinished"
 	],
 	"main": "./out/extension.js",
 	"scripts": {
