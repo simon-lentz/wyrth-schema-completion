@@ -10,11 +10,11 @@ export function activate(context: vscode.ExtensionContext) {
 `Electric Domain Graph:
   Entity: 
     knownAs: ""
-    ownership
-    organizationalForm
+    ownership: ""
+    organizationalForm: ""
     description: ""
     comment: ""
-    governmental
+    governmental: ""
     domain: "electric power"
     name: ""
     endUser: false
@@ -23,10 +23,10 @@ export function activate(context: vscode.ExtensionContext) {
     knownAs: ""
     powerDeliveryMW: 0.0
     solarPowerCapacityMWhYear: 0.0
-    biomassCarbonImpact
-    hydroCaptureType
-    powerStorageType
-    gridStabilization
+    biomassCarbonImpact: ""
+    hydroCaptureType: ""
+    powerStorageType: ""
+    gridStabilization: ""
     powerGenerationMW: 0.0
     geoThermalPowerCapacityMW: 0.0
     sustainabiltyFocused: false
@@ -34,11 +34,11 @@ export function activate(context: vscode.ExtensionContext) {
     solarCaptureTechnology: ""
     geoThermalCaptureType: ""
     domain: "electric power"
-    solarPlantType
+    solarPlantType: ""
     windPowerCapacityMWhYear: 0.0
-    windCaptureTechnology
-    economicModel
-    geographicalScale
+    windCaptureTechnology: ""
+    economicModel: ""
+    geographicalScale: ""
     electricTransmissionService: false
     comment: ""
     description: ""
@@ -47,29 +47,29 @@ export function activate(context: vscode.ExtensionContext) {
     windPowerCapacityMW: 0.0
     nuclearPowerCapacityMW: 0.0
     solarPowerCapacityMW: 0.0
-    windPlantType
+    windPlantType: ""
     biomassPowerMWhYear: 0.0
-    biomassCaptureType
-    targetUsers
+    biomassCaptureType: ""
+    targetUsers: ""
     hydroPowerCapacityMW: 0.0
     electricWholesalingService: false
   Project:
     operationalDate: ""
-    usesNaturalResource
-    usesBuiltResource
+    usesNaturalResource: ""
+    usesBuiltResource: ""
     description: ""
     comment: ""
     domain: "electric power"
     knownAs: ""
-    projectState
+    projectState: ""
   Initiative:
     comment: ""
     domain: "electric power"
     knownAs: ""
     purpose: ""
     decarbonizationPlan: false
-    mandatedDecarbonizationTargets
-    voluntaryDecarbonizationTargets
+    mandatedDecarbonizationTargets: ""
+    voluntaryDecarbonizationTargets: ""
     description: ""
   Regulation:
     relatedRegulation: ""
@@ -90,23 +90,23 @@ export function activate(context: vscode.ExtensionContext) {
     comment: ""
     country: ""
     county: ""
-  GovernmentAuthority:
+  GovernmentAuthority: ""
     regulatoryAgency: false
     description: ""
     comment: ""
     knownAs: ""
-    level
+    level: ""
     domain: "electric power"
     `);
 
         const electricEntity = new vscode.CompletionItem(
 `Entity: 
   knownAs: ""
-  ownership
-  organizationalForm
+  ownership: ""
+  organizationalForm: ""
   description: ""
   comment: ""
-  governmental
+  governmental: ""
   domain: "electric power"
   name: ""
   endUser: false
@@ -118,10 +118,10 @@ export function activate(context: vscode.ExtensionContext) {
   knownAs: ""
   powerDeliveryMW: 0.0
   solarPowerCapacityMWhYear: 0.0
-  biomassCarbonImpact
-  hydroCaptureType
-  powerStorageType
-  gridStabilization
+  biomassCarbonImpact: ""
+  hydroCaptureType: ""
+  powerStorageType: ""
+  gridStabilization: ""
   powerGenerationMW: 0.0
   geoThermalPowerCapacityMW: 0.0
   sustainabiltyFocused: false
@@ -129,11 +129,11 @@ export function activate(context: vscode.ExtensionContext) {
   solarCaptureTechnology: ""
   geoThermalCaptureType: ""
   domain: "electric power"
-  solarPlantType
+  solarPlantType: ""
   windPowerCapacityMWhYear: 0.0
-  windCaptureTechnology
-  economicModel
-  geographicalScale
+  windCaptureTechnology: ""
+  economicModel: ""
+  geographicalScale: ""
   electricTransmissionService: false
   comment: ""
   description: ""
@@ -142,10 +142,10 @@ export function activate(context: vscode.ExtensionContext) {
   windPowerCapacityMW: 0.0
   nuclearPowerCapacityMW: 0.0
   solarPowerCapacityMW: 0.0
-  windPlantType
+  windPlantType: ""
   biomassPowerMWhYear: 0.0
-  biomassCaptureType
-  targetUsers
+  biomassCaptureType: ""
+  targetUsers: ""
   hydroPowerCapacityMW: 0.0
   electricWholesalingService: false
 `);
@@ -153,13 +153,13 @@ export function activate(context: vscode.ExtensionContext) {
         const electricProject = new vscode.CompletionItem(
 `Project:
   operationalDate: ""
-  usesNaturalResource
-  usesBuiltResource
+  usesNaturalResource: ""
+  usesBuiltResource: ""
   description: ""
   comment: ""
   domain: "electric power"
   knownAs: ""
-  projectState
+  projectState: ""
 `);
 
         const electricInitiative = new vscode.CompletionItem(
@@ -169,8 +169,8 @@ export function activate(context: vscode.ExtensionContext) {
   knownAs: ""
   purpose: ""
   decarbonizationPlan: false
-  mandatedDecarbonizationTargets
-  voluntaryDecarbonizationTargets
+  mandatedDecarbonizationTargets: ""
+  voluntaryDecarbonizationTargets: ""
   description: ""
 `);
 
@@ -204,7 +204,7 @@ export function activate(context: vscode.ExtensionContext) {
   description: ""
   comment: ""
   knownAs: ""
-  level
+  level: ""
   domain: "electric power"
 `);     
 
@@ -221,23 +221,21 @@ export function activate(context: vscode.ExtensionContext) {
 		}
 	});
 
-	const provider = vscode.languages.registerCompletionItemProvider('yaml', {
-
-			provideCompletionItems(document: vscode.TextDocument, position: vscode.Position) {
-
-				const linePrefix = document.lineAt(position).text.substring(0, position.character);
-				
-				if (!linePrefix.endsWith('console.')) {
-					return undefined; 
-				}
-				return [
-					new vscode.CompletionItem('log', vscode.CompletionItemKind.Method),
-					new vscode.CompletionItem('warn', vscode.CompletionItemKind.Method),
-					new vscode.CompletionItem('error', vscode.CompletionItemKind.Method),
-				];
+	const nodeFields = vscode.languages.registerCompletionItemProvider('yaml', {
+		provideCompletionItems(document: vscode.TextDocument, position: vscode.Position) {
+			const line = document.lineAt(position).text;
+			const fieldData: vscode.CompletionItem[] = [];
+            // Check for the presence of a certain string in the current line
+            if (line.includes('ownership: ""')) {
+                fieldData.push({
+                    label: 'ownership',
+                    kind: vscode.CompletionItemKind.Property,
+                    insertText: '"ownership: ${1|"public investors", "private investors", "members"|}"',
+                    detail: 'possible ownership types.',
+                    });
+                }
+                return fieldData;
 			}
-		},
-		'.' // triggered whenever a '.' is being typed
-	);
-	context.subscriptions.push(electricDomain, provider);
+		});
+	context.subscriptions.push(electricDomain, nodeFields);
 }
