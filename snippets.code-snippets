@@ -1,18 +1,23 @@
 {
+	"template": {
+		"scope": "yaml",
+		"prefix": "template",
+		"body": "# The electric domain is modeled by the following nodes: Entity, Service, Project, Initiative, Regulation, Place, Government Authority"
+	},
 	"ownership": {
 	  "scope": "yaml",
 	  "prefix": "ownership:",
-	  "body": "ownership: ${1|\"public investors\",\"private investors\",\"members\",\"\"|}"
+	  "body": "ownership: ${1|\"public investors\",\"private investors\",\"members\"|}"
 	},
 	"organizationalForm": {
 		"scope": "yaml",
 		"prefix": "organizationalForm:",
-		"body": "organizationalForm: ${1|\"individual\",\"company\",\"consortium\",\"\"|}"
+		"body": "organizationalForm: ${1|\"individual\",\"company\",\"consortium\"|}"
 	  },
 	"governmental": {
 		"scope": "yaml",
 		"prefix": "governmental:",
-		"body": "governmental: ${1|\"federal\",\"regional\",\"state\",\"local\",\"\"|}"
+		"body": "governmental: ${1|\"federal\",\"regional\",\"state\",\"local\"|}"
 	  },
 	"biomassCarbonImpact": {
 		"scope": "yaml",
