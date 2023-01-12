@@ -1,7 +1,7 @@
 {
 	"name": "wyrth-schema-completion",
 	"displayName": "Wyrth Schema Completion",
-	"version": "1.2.0",
+	"version": "1.3.0",
 	"publisher": "simon-lentz",
 	"private": true,
 	"license": "MIT",
