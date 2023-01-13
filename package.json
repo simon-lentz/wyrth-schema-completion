@@ -27,11 +27,6 @@
 	"activationEvents": [
 		"onLanguage:yaml"
 	],
-	"icon": "images/logo.png",
-	"galleryBanner": {
-		"color": "#C80000",
-		"theme": "dark"
-	},
 	"main": "./out/extension.js",
 	"scripts": {
 		"vscode:prepublish": "npm run compile",

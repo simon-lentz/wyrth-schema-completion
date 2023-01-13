@@ -18,10 +18,10 @@ export function activate(context: vscode.ExtensionContext) {
   BUSINESS_RELATIONSHIP_WITH_Entity: [...EDGE_BUSINESS_RELATIONSHIP_WITH_Entity]
 	ADOPTED_Initiative: [...EDGE_ADOPTED_Initiative]
 	PROVIDES_Service: 
-		WHERE: REF_TO_SERVICE
+		WHERE: *serviceRef
 	OPERATES_Project: [...EDGE_OPERATES_Project]
 	LOCATED_IN_Place: 
-		WHERE: REF_TO_PLACE
+		WHERE: *placeRef
   `);
       const electricService = new vscode.CompletionItem(
 `Service:
@@ -59,7 +59,7 @@ export function activate(context: vscode.ExtensionContext) {
   hydroPowerCapacityMW: 0.0
   electricWholesalingService: false
   PROVIDED_TO_Entity: 
-		WHERE: REF_TO_ENTITY
+		WHERE: *entityRef
 `);
       const electricProject = new vscode.CompletionItem(
 `Project:
@@ -72,9 +72,9 @@ export function activate(context: vscode.ExtensionContext) {
   knownAs: ""
   projectState
   LOCATED_IN_Place:
-		WHERE: REF_TO_PLACE
+		WHERE: *placeRef
 	ENABLES_Service:
-		WHERE: REF_TO_SERVICE
+		WHERE: *serviceRef
 `);
       const electricInitiative = new vscode.CompletionItem(
 `Initiative:
@@ -88,11 +88,11 @@ export function activate(context: vscode.ExtensionContext) {
   description: ""
   COMPLIES_WITH_Regulation: [...EDGE_COMPLIES_WITH_Regulation]
 	SUPPORTS_Project:
-		WHERE: REF_TO_PROJECT
+		WHERE: *projectRef
 	APPLIES_TO_Place:
-		WHERE: REF_TO_PLACE
+		WHERE: *placeRef
 	SUPPORTS_Service:
-		WHERE: REF_TO_SERVICE
+		WHERE: *serviceRef
 `);
       const electricRegulation = new vscode.CompletionItem(
 `Regulation:
@@ -104,13 +104,13 @@ export function activate(context: vscode.ExtensionContext) {
   statutoryTextLink: ""
   purpose: ""
   APPLIES_TO_Place:
-		WHERE: REF_TO_PLACE
+		WHERE: *placeRef
 	APPLIES_TO_Entity: 
-		WHERE: REF_TO_ENTITY
+		WHERE: *entityRef
 	APPLIES_TO_Service:
-		WHERE: REF_TO_SERVICE
+		WHERE: *serviceRef
 	APPLIES_TO_Project:
-		WHERE: REF_TO_PROJECT
+		WHERE: *projectRef
 `);
       const electricPlace = new vscode.CompletionItem(
 `Place:
@@ -135,13 +135,13 @@ export function activate(context: vscode.ExtensionContext) {
   domain: "electric power"
   ADOPTED_Regulation: [...EDGE_ADOPTED_Regulation]
 	REGULATES_Project: 
-		WHERE: REF_TO_PROJECT
+		WHERE: *projectRef
 	REGULATES_Service: 
-		WHERE: REF_TO_SERVICE
+		WHERE: *serviceRef
 	REGULATES_Entity: 
-		WHERE: REF_TO_ENTITY
+		WHERE: *entityRef
 	LOCATED_IN_Place:
-		WHERE: REF_TO_PLACE
+		WHERE: *placeRef
 `); 
 
     const businessRelationship = new vscode.CompletionItem(
@@ -149,133 +149,133 @@ export function activate(context: vscode.ExtensionContext) {
   businessRelationshipType: ""
   description: ""
   comment: ""
-  WHERE: REF_TO_ENTITY
+  WHERE: *entityRef
 `);
 
     const adoptedInitiative = new vscode.CompletionItem(
 `EDGE_ADOPTED_Initiative: 
   adoptionDate: ""
-  WHERE: REF_TO_INITIATIVE
+  WHERE: *initiativeRef
 `);
 
 
     const providesService = new vscode.CompletionItem(
 `EDGE_PROVIDES_Service: 
-  WHERE: REF_TO_SERVICE
+  WHERE: *serviceRef
 `);
 
   const operatesProject = new vscode.CompletionItem(
 `EDGE_OPERATES_Project: 
   role:  ""
-  WHERE: REF_TO_PROJECT
+  WHERE: *projectRef
 `);
 
     const locatedPlace = new vscode.CompletionItem(
 `EDGE_LOCATED_IN_Place: 
-  WHERE: REF_TO_PLACE
+  WHERE: *placeRef
 `);
 
  const providedEntity = new vscode.CompletionItem(
 `EDGE_PROVIDED_TO_Entity: 
-  WHERE: REF_TO_ENTITY
+  WHERE: *entityRef
 `);
 
 
  const enablesService = new vscode.CompletionItem(
 `EDGE_ENABLES_Service: 
-  WHERE: REF_TO_SERVICE
+  WHERE: *serviceRef
 `);
 
  const compliesRegulation = new vscode.CompletionItem(
 `EDGE_COMPLIES_WITH_Regulation: 
   compliance: ""
-  WHERE: REF_TO_REGULATION
+  WHERE: *regulationRef
 `);
 
     const supportsProject = new vscode.CompletionItem(
 `EDGE_SUPPORTS_Project: 
-  WHERE: REF_TO_PROJECT
+  WHERE: *projectRef
 `);
 
  const appliesPlace = new vscode.CompletionItem(
 `EDGE_APPLIES_TO_Place: 
-  WHERE: REF_TO_PLACE
+  WHERE: *placeRef
 `);
 
  const supportsService = new vscode.CompletionItem(
 `EDGE_SUPPORTS_Service: 
-  WHERE: REF_TO_SERVICE
+  WHERE: *serviceRef
 `);
 
 
  const appliesEntity = new vscode.CompletionItem(
 `EDGE_APPLIES_TO_Entity: 
-  WHERE: REF_TO_ENTITY
+  WHERE: *entityRef
 `);
 
  const appliesService = new vscode.CompletionItem(
 `EDGE_APPLIES_TO_Service: 
-  WHERE: REF_TO_SERVICE
+  WHERE: *serviceRef
 `);
 
  const appliesProject = new vscode.CompletionItem(
 `EDGE_APPLIES_TO_Project: 
-  WHERE: REF_TO_PROJECT
+  WHERE: *projectRef
 `);
 
  const adoptedRegulation = new vscode.CompletionItem(
 `EDGE_ADOPTED_Regulation: 
   adoptionDate: ""
-  WHERE: REF_TO_REGULATION
+  WHERE: *regulationRef
 `);
 
     const regulatesProject = new vscode.CompletionItem(
 `EDGE_REGULATES_Project: 
-  WHERE: REF_TO_PROJECT
+  WHERE: *projectRef
 `);
 
  const regulatesService = new vscode.CompletionItem(
 `EDGE_REGULATES_Service: 
-  WHERE: REF_TO_SERVICE
+  WHERE: *serviceRef
 `);
 
  const regulatesEntity = new vscode.CompletionItem(
 `EDGE_REGULATES_Entity: 
-  WHERE: REF_TO_ENTITY
+  WHERE: *entityRef
 `);
 
 
  const refEntity = new vscode.CompletionItem(
-`REF_TO_ENTITY: 
+`REF_TO_ENTITY: &entityRef
   domain: "electric power"
   knownAs: ""
 `);
 
     const refInitiative = new vscode.CompletionItem(
-`REF_TO_INITIATIVE: 
+`REF_TO_INITIATIVE: &initiativeRef
   domain: "electric power"
   knownAs: ""
   purpose: ""
 `);
 
     const refPlace = new vscode.CompletionItem(
-`REF_TO_PLACE: 
+`REF_TO_PLACE: &placeRef
   knownAs: ""
 `);
 
  const refProject = new vscode.CompletionItem(
-`REF_TO_PROJECT: 
+`REF_TO_PROJECT: &projectRef
   domain: "electric power"
   knownAs: ""
 `);
 
     const refRegulation = new vscode.CompletionItem(
-`REF_TO_REGULATION: 
+`REF_TO_REGULATION: &regulationRef
   knownAs: ""
 `);
 
  const refService = new vscode.CompletionItem(
-`REF_TO_SERVICE: 
+`REF_TO_SERVICE: &serviceRef
   knownAs: ""
   domain: "electric power"
 `);
